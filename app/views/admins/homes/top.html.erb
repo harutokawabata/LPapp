@@ -1,0 +1,17 @@
+<h2>ここは管理者側Toppageです</h2>
+<div class="container">
+    <button class="btn btn-primary">primary</button>
+</div>
+<div class="logout">
+    <% if user_signed_in? %>
+    <p>ユーザー</p>
+    <%= link_to "ログアウト", destroy_user_session_path, method::delete %>
+    <% elsif admin_signed_in? %>
+    <p>管理者</p>
+    <%= link_to "ログアウト", destroy_admin_session_path, method::delete %>
+    <% else %>
+    <p>ゲストユーザー</p>
+    <%= link_to "新規登録" new_user_registation_path %>
+    <%= link_to "ログイン" new_user_session_path %>
+    <% end %>
+</div>

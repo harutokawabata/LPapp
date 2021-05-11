@@ -1,0 +1,22 @@
+<div class="container text-center">
+    <div class="row">
+        <h2>このサイトでは簡単にLPを作成することが出来ます</h2>
+        <h3>一度登録して放置でOK！</h3>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary">登録ページ一覧を見る</button>
+    </div>
+    <div class="logout">
+    <% if user_signed_in? %>
+      <p>ユーザーログイン中</p>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% elsif admin_signed_in? %>
+      <p>管理者</p>
+      <%= link_to "ログアウト", destroy_admin_session_path, method::delete %>
+      <% else %>
+      <p>ゲストユーザー</p>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    <% end %>
+    </div>
+</div>
