@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    resources :socials
+  end
   devise_for :admins, controllers: {
        sessions:      'admins/sessions',
        passwords:     'admins/passwords',

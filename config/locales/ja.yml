@@ -1,0 +1,12 @@
+ja:
+  enums:
+    social:
+      snstype:
+        waiting: "支払待ち"
+        twitter: "Twitter"
+        facebook: "Facebook"
+        line: "LINE公式アカウント"
+        tiktok: "TikTok"
+        youtube: "YouTube"
+        instagram: "Instagram"
+        blog: "BlogやHP"
