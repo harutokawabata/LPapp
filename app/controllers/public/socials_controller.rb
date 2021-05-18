@@ -4,17 +4,21 @@ class Public::SocialsController < ApplicationController
   end
   
   def create
-    social = Social.new(social_params)
+    @social = Social.new(social_params)
     # @social.url = social_params(:url)
     # buybug
-    social.save
-    redirect_to public_socials_new_path
+    @social.save
+    redirect_to public_socials_path
+    
   end
 
   def index
     @socials = Social.all
   end
   
+  def show
+    @social = Social.find(params[:id])
+  end
 
   def edit
   end

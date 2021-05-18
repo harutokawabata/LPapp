@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   namespace :public do
     resources :socials
   end
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
        passwords:     'users/passwords',
        registrations: 'users/registrations'
      }
+  resources :users
  
      get '/admin' => 'admins/homes#top'
    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

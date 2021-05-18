@@ -1,0 +1,46 @@
+<div class="container user">
+    <div class="user row">
+        <%= @user.name %>さんのページ
+        <div class="box1">
+          <div class="box2">
+          <% @user.socials.each do |social| %>
+            <% if social.snstype["twitter"].present? %>
+              <%= image_tag 'img/twitter.png'%>
+            <% end %>
+            <% if social.snstype["blog"].present? %>
+              <%= image_tag 'img/blog.png' %>
+            <% end %>
+            <% if social.snstype["instagram"].present? %>
+              <%= image_tag 'img/insta.png' %>
+            <% end %>
+            <% if social.snstype["line"].present? %>
+              <%= image_tag 'img/line.png' %>
+            <% end %>
+            <% if social.snstype["facebook"].present? %>
+              <%= image_tag 'img/fb.png' %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+        <div class="box3">
+        <%= form_with model: @user, local: true do |f| %>
+          <%= f.label :introduction %>
+          <%= f.text_area :introduction %>
+          <%= f.submit %>
+        <% end %>
+         <%= @user.introduction %>
+        </div>
+    </div>
+    <div class="iconarea text-center">
+      <p>【登録可能なSNS】</p>
+      <i class="fab fa-youtube"></i>
+      <i class="fab fa-tiktok"></i>
+      <i class="fab fa-instagram-square"></i>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-line"></i>
+      <i class="fab fa-twitter-square"></i>
+      <%= link_to 'SNS追加', new_public_social_path %>
+    </div>
+    
+    
+</div>

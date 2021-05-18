@@ -1,0 +1,51 @@
+<div class="container user">
+    <div class="user row">
+        <h1><%= @user.name %>さんのページ</h1>
+        <div class="margin-auto">
+          <%= image_tag 'img/skiresume.png', class:"top-image" %>
+        </div>
+    </div>
+    <div class="row iconarea">
+    <% @user.socials.each do |social| %>
+        <% if social.snstype["twitter"].present? %>
+          <%= link_to social.url do %>
+             <%= image_tag 'img/twitter.png' %>
+          <% end %>
+        <% end %>
+        <% if social.snstype["blog"].present? %>
+          <%= link_to social.url do %>
+            <%= image_tag 'img/blog.png' %>
+          <% end %>
+        <% end %>
+        <% if social.snstype["instagram"].present? %>
+          <%= link_to social.url do %>
+            <%= image_tag 'img/insta.png' %>
+          <% end %>
+        <% end %>
+        <% if social.snstype["line"].present? %>
+          <%= link_to social.url do %>
+            <%= image_tag 'img/line.png' %>
+          <% end %>
+        <% end %>
+        <% if social.snstype["facebook"].present? %>
+          <%= link_to social.url do %>
+            <%= image_tag 'img/fb.png' %>
+          <% end %>
+        <% end %>
+    <% end %>
+    </div>
+    <div class="row introduction-area">
+      
+    </div>
+    <div class="row btn-area text-center margin20">
+      <%= link_to 'SNS追加', new_public_social_path, class:"btn btn-primary" %>
+    </div>
+    <!--<div class="iconarea row">-->
+    <!--  <i class="fab fa-youtube text-right"></i>-->
+    <!--  <i class="fab fa-tiktok text-right"></i>-->
+    <!--  <i class="fab fa-instagram-square text-right"></i>-->
+    <!--  <i class="fab fa-facebook text-right"></i>-->
+    <!--  <i class="fab fa-line text-right"></i>-->
+    <!--  <i class="fab fa-twitter-square text-right"></i>-->
+    <!--</div>-->
+</div>
