@@ -20,7 +20,29 @@
 body {
    background-color: #f0f0f1;
 //   max-width: 100%;
-   overflow: hidden;
+//   overflow: hidden;
+}
+
+ootstrap4 colの隙間（padding、margin）をを削除する（CSS）Default
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
+}
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+ 
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
 }
 
 h1 {
@@ -74,7 +96,6 @@ h1 {
     height: 100%;
     background-color: white;
     text-align: center;
-    border: solid 1px gray;
   }
   
 .top-image {
@@ -103,7 +124,19 @@ h1 {
     //  margin: 30px 0px;
     height: 180px;
  }
+ 
+ .row.users-area {
+     margin: 40px 0px 0px 0px;
+     border: solid 1px gray;
+ }
+.users-header {
+    border-bottom: solid 2px gray;
+    line-height: -17px;
+}
 
+.user-inners {
+    border-bottom: dotted 1px gray;
+}
 /* ★★★★タブレット縦置きサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
   /* 共通 */
@@ -112,6 +145,9 @@ body {
    background-color: #f0f0f1;
 //   max-width: 100%;
    overflow: hidden;
+}
+.container,.row,.user.row {
+    margin: 0px;
 }
 
 .user,.row.iconarea,,.introduction-area,.btn-area {
