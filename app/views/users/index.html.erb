@@ -1,47 +1,58 @@
 <div class="container user">
-    <div class="user row">
-        <h1><%= @user.name %>さんのページ</h1>
-        <div class="margin-auto">
-          <%= image_tag 'img/skiresume.png', class:"top-image" %>
+    <div class="row users-area no-gutters">
+      <h2 style="font-size:24px;">ユーザー一覧</h2>
+      <div class="row users-header no-gutters">
+        <div class="col-xs-7">【name】</div>
+        <!--<div class="col-xs-">【introduction】</div>-->
+        <div class="col-xs-5">【sns】</div>
+      </div>
+      <% a = 0 %>
+      <% @users.each do |user| %>
+      <div class="row no-gutters user-inners">
+        <div class="col-xs-7  text-left">
+          【<%= a += 1 %>】<%= link_to user.name, user_path(user.id) %>
         </div>
-    </div>
-    <div class="row iconarea">
-    <% @user.socials.each do |social| %>
-        <% if social.snstype["twitter"].present? %>
-          <%= link_to social.url do %>
-             <%= image_tag 'img/twitter.png' %>
-          <% end %>
-        <% end %>
-        <% if social.snstype["blog"].present? %>
-          <%= link_to social.url do %>
-            <%= image_tag 'img/blog.png' %>
-          <% end %>
-        <% end %>
-        <% if social.snstype["instagram"].present? %>
-          <%= link_to social.url do %>
-            <%= image_tag 'img/insta.png' %>
-          <% end %>
-        <% end %>
-        <% if social.snstype["line"].present? %>
-          <%= link_to social.url do %>
-            <%= image_tag 'img/line.png' %>
-          <% end %>
-        <% end %>
-        <% if social.snstype["facebook"].present? %>
-          <%= link_to social.url do %>
-            <%= image_tag 'img/fb.png' %>
-          <% end %>
-        <% end %>
-    <% end %>
-    </div>
-    <div class="row introduction-area">
-      
-    </div>
-    <div class="row btn-area text-center margin20">
-      <%= link_to 'SNS追加', new_public_social_path, class:"btn btn-primary" %>
+        <!--<div class="col-xs-5">-->
+           <%# user.introduction.truncate(20)  %>
+        <!--</div>-->
+        <div class="col-xs-5">
+           <% user.socials.each do |social| %>
+              <% if social.snstype["twitter"].present? %>
+                <%= link_to social.url do %>
+                  <i class="fab fa-twitter-square"></i>
+                <% end %>
+              <% end %>
+              <% if social.snstype["blog"].present? %>
+                <%= link_to social.url do %>
+                  <i class="fab fa-youtube"></i>
+                <% end %>
+              <% end %>
+              <% if social.snstype["instagram"].present? %>
+                <%= link_to social.url do %>
+                  <i class="fab fa-instagram-square"></i>
+                <% end %>
+              <% end %>
+              <% if social.snstype["line"].present? %>
+                <%= link_to social.url do %>
+                  <i class="fab fa-line"></i>
+                <% end %>
+              <% end %>
+              <% if social.snstype["facebook"].present? %>
+                <%= link_to social.url do %>
+                  <i class="fab fa-facebook"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+            <br>
+            <% if current_user.id == user.id %>
+              <%= link_to 'SNS追加', new_public_social_path %>
+            <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
     <!--<div class="iconarea row">-->
-    <!--  <i class="fab fa-youtube text-right"></i>-->
+    <!--  <i class="fab fa-youtube"></i>-->
     <!--  <i class="fab fa-tiktok text-right"></i>-->
     <!--  <i class="fab fa-instagram-square text-right"></i>-->
     <!--  <i class="fab fa-facebook text-right"></i>-->
